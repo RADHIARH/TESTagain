@@ -21,7 +21,7 @@ var dbConn = mysql.createPool({
   // multipleStatements: true,
   port: "3306",
 });
-const port = 3001;
+const port = process.env.PORT || 3002;
 app.listen(port, function () {
   console.log("Node app is running on port " + port);
 });
