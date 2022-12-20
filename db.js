@@ -7,4 +7,7 @@ const connection = mysql.createConnection({
   database: "node_mysql_crud_db",
 });
 
+connection.connect(function (error) {
+  if (error) console.log(error);
+});
 module.exports = connection;
