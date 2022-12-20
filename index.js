@@ -25,12 +25,9 @@ const port = process.env.PORT || 3002;
 app.listen(port, function () {
   console.log("Node app is running on port " + port);
 });
+let router = require("./routes");
+app.use("/", router);
 // Export the Express API
 // Creating GET Router to fetch all the employes  from the MySQL Database
-app.get("/employes", (req, res) => {
-  dbConn.query("SELECT * from employees", (err, rows, fields) => {
-    if (!err) res.send(rows);
-    else console.log(err);
-  });
-});
+
 module.exports = app;
