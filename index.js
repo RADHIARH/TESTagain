@@ -26,7 +26,7 @@ app.listen(port, function () {
   console.log("Node app is running on port " + port);
 });
 let router = require("./routes");
-app.use("/", router);
+app.use("/user", router);
 // Export the Express API
 // Creating GET Router to fetch all the employes  from the MySQL Database
 
