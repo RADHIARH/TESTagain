@@ -1,13 +1,13 @@
 var mysql = require("mysql2");
 //Database connection
-const connection = mysql.createConnection({
+var pool = mysql.createPool({
+  connectionLimit: 5,
   host: "localhost",
   user: "root",
-  password: "reactjs!nodejs$ingenieurinformatique",
-  database: "node_mysql_crud_db",
+  password: "",
+  database: "todoapp",
 });
-
-connection.connect(function (error) {
-  if (error) console.log(error);
+pool.getConnection(function (err, connection) {
+  connection.release();
 });
 module.exports = connection;
