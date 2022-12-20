@@ -1,14 +1,14 @@
 let User = require("../models/userModel");
-var mysql = require("mysql2");
-//Database connection
 const connection = mysql.createConnection({
-  host: "127.0.0.1",
+  host: "localhost",
   user: "root",
   password: "reactjs!nodejs$ingenieurinformatique",
   database: "node_mysql_crud_db",
 });
-connection.connect();
 
+connection.connect(function (error) {
+  if (error) console.log(error);
+});
 // List of users
 exports.userList = function (request, response) {
   connection.query("Select * from employees", function (error, resultSQL) {
