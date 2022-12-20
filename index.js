@@ -17,7 +17,7 @@ var dbConn = mysql.createPool({
   host: "127.0.0.1",
   user: "root",
   password: "reactjs!nodejs$ingenieurinformatique",
-  database: "mydatabase",
+  database: "node_mysql_crud_db",
   // multipleStatements: true,
   port: "3306",
 });
@@ -26,9 +26,9 @@ app.listen(port, function () {
   console.log("Node app is running on port " + port);
 });
 // Export the Express API
-//Creating GET Router to fetch all the employes  from the MySQL Database
+// Creating GET Router to fetch all the employes  from the MySQL Database
 app.get("/employes", (req, res) => {
-  dbConn.query("SELECT * FROM user_table", (err, rows, fields) => {
+  dbConn.query("SELECT * from employees", (err, rows, fields) => {
     if (!err) res.send(rows);
     else console.log(err);
   });
